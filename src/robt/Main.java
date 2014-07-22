@@ -13,7 +13,9 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import robt.commands.CommandBase;
+import robt.commands.DriveForwards;
 import robt.commands.drive.Lerpdrive;
+import robt.utils.Dashboard;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -24,7 +26,7 @@ import robt.commands.drive.Lerpdrive;
  */
 public class Main extends IterativeRobot {
 
-    Command autonomousCommand;
+    Command driveAuton;
 
     /**
      * This function is run when the robot is first started up and should be
@@ -32,16 +34,19 @@ public class Main extends IterativeRobot {
      */
     public void robotInit() {
         // instantiate the command used for the autonomous period
-        //autonomousCommand = new Lerpdrive();
+        driveAuton=new DriveForwards(3000);
 
         // Initialize all subsystems
         CommandBase.init();
         this.getWatchdog().setEnabled(false);
     }
+    
+    public void disabledPeriodic(){
+        Dashboard.putStuff();
+    }
 
     public void autonomousInit() {
-        // schedule the autonomous command (example)
-        //autonomousCommand.start();
+        driveAuton.start();
     }
 
     /**
@@ -49,6 +54,7 @@ public class Main extends IterativeRobot {
      */
     public void autonomousPeriodic() {
         Scheduler.getInstance().run();
+        Dashboard.putStuff();
     }
 
     public void teleopInit() {
@@ -56,7 +62,7 @@ public class Main extends IterativeRobot {
         // teleop starts running. If you want the autonomous to 
         // continue until interrupted by another command, remove
         // this line or comment it out.
-        //autonomousCommand.cancel();
+        driveAuton.cancel();
     }
 
     /**
@@ -64,6 +70,7 @@ public class Main extends IterativeRobot {
      */
     public void teleopPeriodic() {
         Scheduler.getInstance().run();
+        Dashboard.putStuff();
     }
     
     /**

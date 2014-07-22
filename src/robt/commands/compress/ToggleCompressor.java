@@ -9,7 +9,7 @@ import robt.commands.CommandBase;
 
 /**
  *
- * @author Developer
+ * @author Sam Dietrich / Team ORyon
  */
 public class ToggleCompressor extends CommandBase {
     
@@ -26,6 +26,7 @@ public class ToggleCompressor extends CommandBase {
     protected void execute() {
         if(compressor.getEnabled()){
             compressor.disable();
+            
         }
         else{
             compressor.enable();

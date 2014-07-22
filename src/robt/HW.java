@@ -20,22 +20,13 @@ public class HW {
             flip1slot=1,    flip1channel=7,
             flip2slot=1,    flip2channel=8;
     
-    //RELAYS
     public static final int 
-            compressorSlot=1,   compressorChannel=6;
+            compressorslot=1,   compressorchannel=1;
     
-    //SOLENOIDS
-    public static final int armSolenoid1Channel=1,  armSolenoid2Channel=2,
-                            armStage2Channel1=3,    armStage2Channel2=4,
-            
-                            lockSolenoid1Channel=5, lockSolenoid2Channel=6,
-                            releaseSolenoid1Channel=7,releaseSolenoid2Channel=8;
+    public static final int armsolenoid1channel=1,  armsolenoid2channel=2,
+                            armstage2channel1=3,    armstage2channel2=4;
     
-    //SENSORS
     public static final int 
-            presssureSwitchSlot=1,  pressureSwitchChannel=1,
-            ballsensorslot=1,       ballsensorchannel=2,
-            
-            
-            winchLimitSlot=1,       winchLimitChannel=9;
+            presssureswitchslot=1,  pressureswitchchannel=1,
+            ballsensorslot=1,       ballsensorchannel=2;
 }
